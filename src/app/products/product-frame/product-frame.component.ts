@@ -5,7 +5,7 @@ import {ProductService} from '../product.service';
 @Component({
   selector: 'app-product-frame',
   templateUrl: './product-frame.component.html',
-  styleUrls: ['./product-frame.component.css'],
+  styleUrls: ['./product-frame.component.scss'],
 })
 export class ProductFrameComponent implements OnInit {
   product: Product;
@@ -18,5 +18,9 @@ export class ProductFrameComponent implements OnInit {
 
   loadProduct(): void {
     this.productService.getProduct().then(product => this.product = product);
+  }
+
+  clickProduct(): void {
+    console.log('Hello');
   }
 }

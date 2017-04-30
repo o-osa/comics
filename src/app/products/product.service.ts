@@ -11,6 +11,6 @@ export class ProductService {
   }
 
   getProductImpl() {
-    return new Product(1, 'title', 'url');
+    return new Product(1, 'title', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkrD3dIGNRyswbzTte9erpOKeDp4tQUfoFDuhQcqo3nhSZ1mEhCQ');
   }
 }

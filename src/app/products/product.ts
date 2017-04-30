@@ -1,4 +1,4 @@
 export class Product {
-  constructor(public id: number, public title: string, public posterUrl: string) {
+  constructor(public id: number, public description: string, public posterUrl: string) {
   }
 }

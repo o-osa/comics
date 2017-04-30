@@ -1,3 +1,6 @@
-<p *ngIf="product">
-  {{product.id}}
-</p>
+<div *ngIf="product" (click)="clickProduct()">
+  <figure class="poster">
+    <img [src]="product.posterUrl" />
+    <figcaption>{{product.description}}</figcaption>
+  </figure>
+</div>
