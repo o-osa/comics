@@ -1,0 +1,7 @@
+#burgerMenu {
+  background: gray;
+  position: absolute;
+  width: 30%;
+  min-width: 70px;
+  max-width: 150px;
+}
