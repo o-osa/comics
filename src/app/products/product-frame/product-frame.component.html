@@ -1,4 +1,4 @@
-<div *ngIf="product" (click)="clickProduct()">
+<div *ngIf="product" (click)="clickProduct(product.id)">
   <figure class="poster">
     <img [src]="product.posterUrl" />
     <figcaption>{{product.description}}</figcaption>

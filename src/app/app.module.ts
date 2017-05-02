@@ -11,7 +11,10 @@ import {ProductsComponent} from './products/products.component';
 import {HomeComponent} from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import { ProductFrameComponent } from './products/product-frame/product-frame.component';
-import {ProductService} from './products/product.service';
+import {ProductServiceDummy} from './products/service/product.service.dummy';
+import { ProductDialogComponent } from './products/product-dialog/product-dialog.component';
+import { ProductCarouselComponent } from './products/product-carousel/product-carousel.component';
+import {ProductService} from './products/service/product.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {ProductService} from './products/product.service';
     AboutComponent,
     ProductsComponent,
     HomeComponent,
-    ProductFrameComponent
+    ProductFrameComponent,
+    ProductDialogComponent,
+    ProductCarouselComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -29,8 +34,10 @@ import {ProductService} from './products/product.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide: ProductService, useClass: ProductServiceDummy}],
+  bootstrap: [AppComponent],
+  entryComponents: [ProductDialogComponent]
 })
 export class AppModule {
 }

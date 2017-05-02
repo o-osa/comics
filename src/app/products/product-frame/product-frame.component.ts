@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../product';
-import {ProductService} from '../product.service';
+import {ProductService} from '../service/product.service';
+import {NgbModal, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import {ProductDialogComponent} from '../product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-product-frame',
@@ -8,9 +10,10 @@ import {ProductService} from '../product.service';
   styleUrls: ['./product-frame.component.scss'],
 })
 export class ProductFrameComponent implements OnInit {
+
   product: Product;
 
-  constructor(private productService: ProductService ) { }
+  constructor(private productService: ProductService,  private modalService: NgbModal) { }
 
   ngOnInit() {
      this.loadProduct();
@@ -20,7 +23,9 @@ export class ProductFrameComponent implements OnInit {
     this.productService.getProduct().then(product => this.product = product);
   }
 
-  clickProduct(): void {
-    console.log('Hello');
+  clickProduct(productId: number): void {
+    const options: NgbModalOptions = {windowClass: 'product-dialog'};
+    const componentInstance: ProductDialogComponent = this.modalService.open(ProductDialogComponent, options).componentInstance;
+    componentInstance.productId = productId;
   }
 }
